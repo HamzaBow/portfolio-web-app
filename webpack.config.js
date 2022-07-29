@@ -10,6 +10,18 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
   },
+  module: {
+    rules: [
+      {
+        test:/\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "Web Pack",
@@ -19,8 +31,8 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       title: "Web Pack",
-      filename: "mathnote-project.html",
-      template: "src/mathnote-project.html",
+      filename: "project-mathnote.html",
+      template: "src/project-mathnote.html",
     }),
 
     new HtmlWebpackPlugin({
