@@ -213,10 +213,14 @@
         </div>
 
         <div class="main-footer__lower">
-          &copy; Copyright 2021. Made by
-          <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com"
-            >Ram Maheshwari</a
+          &copy; Copyright <span id="copyright-year"></span>. Made by
+          <a rel="noreferrer" target="_blank" href="https://boukh.com"
+            >Hamza Boukhentiche</a
           >
+          <script>
+            const copyrightYear = document.getElementById("copyright-year");
+            copyrightYear.innerText = `${new Date().getFullYear()}`
+          </script>
         </div>
       </div>
     </footer>
