@@ -46,7 +46,7 @@ a {
   text-decoration: none;
   color: inherit; }
 
-li {
+.header__link-wrapper {
   list-style: none; }
 
 input:focus,
