@@ -460,7 +460,13 @@ textarea {
     font-size: 1.8rem;
     line-height: 1.7;
     color: grey;
-    margin-bottom: 2rem; }
+    margin-bottom: 1rem; }
+  .project-details__desc-ul {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    color: grey;
+    margin-bottom: 2rem;
+    margin-left: 3rem; }
 
 .project-details__tools-used {
   margin: 0 0 7rem 0; }
