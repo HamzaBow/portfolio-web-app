@@ -1,4 +1,16 @@
 import './styles/main.scss';
+import fetchDocs from "./services/firebase"
+async function logDocs() {
+  const docs = await fetchDocs();
+  docs.forEach((doc) => {
+    console.log('doc.id :>> ', doc.id);
+    const data=  doc.data()
+    console.log('name :>> ', data.name);
+    console.log('email :>> ', data.email);
+    console.log("========================================");
+  })
+}
+logDocs()
 // ---
 const hamMenuBtn            = document.querySelector('.header__main-ham-menu-cont')
 const smallMenu             = document.querySelector('.header__sm-menu')
