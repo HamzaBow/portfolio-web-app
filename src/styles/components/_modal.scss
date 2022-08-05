@@ -17,6 +17,9 @@
   }
   & > div {
     width: 400px;
+    @include respond(phone) {
+      width: 320px;
+    }
     position: absolute;
     top: 50%;
     left: 50%;
