@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, addDoc } from  'firebase/firestore'
+import { getFirestore, collection, getDocs, addDoc, serverTimestamp } from  'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAnX5SXT4zQpX2syXTpZQRPJBV_0-N9TbI",
@@ -21,7 +21,8 @@ contactForm.addEventListener("submit", (e) => {
   addDoc(colRef, {
     name: contactForm.name.value,
     email: contactForm.email.value,
-    message: contactForm.message.value
+    message: contactForm.message.value,
+    createdAt: serverTimestamp()
   })
   .then(() => {
     contactForm.reset()
