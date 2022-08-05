@@ -1,7 +1,5 @@
-// require('dotenv').config()
-// import { dotenv } from "dotenv"
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from  'firebase/firestore'
+import { getFirestore, collection, getDocs, addDoc } from  'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAnX5SXT4zQpX2syXTpZQRPJBV_0-N9TbI",
@@ -16,6 +14,19 @@ initializeApp(firebaseConfig);
 const db = getFirestore()
 
 const colRef = collection(db, 'messages')
+
+const contactForm = document.querySelector(".contact__form")
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault()
+  addDoc(colRef, {
+    name: contactForm.name.value,
+    email: contactForm.email.value,
+    message: contactForm.message.value
+  })
+  .then(() => {
+    contactForm.reset()
+   })
+})
 
 export default function fetchDocs() {
   return getDocs(colRef)
