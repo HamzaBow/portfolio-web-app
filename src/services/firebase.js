@@ -18,6 +18,16 @@ const colRef = collection(db, 'messages')
 const contactForm = document.querySelector(".contact__form")
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault()
+  const submitBtn = document.querySelector(".contact__btn")
+  const btnOriginalColor = submitBtn.style.backgroundColor
+
+  submitBtn.style.backgroundColor = "gray"
+  submitBtn.disabled = true
+  submitBtn.textContent = "Submitting..."
+  contactForm.name.disabled = true
+  contactForm.email.disabled = true
+  contactForm.message.disabled = true
+
   addDoc(colRef, {
     name: contactForm.name.value,
     email: contactForm.email.value,
@@ -26,6 +36,13 @@ contactForm.addEventListener("submit", (e) => {
   })
   .then(() => {
     contactForm.reset()
+    contactForm.name.disabled = false
+    contactForm.email.disabled = false
+    contactForm.message.disabled = false
+    submitBtn.style.backgroundColor = btnOriginalColor
+    submitBtn.disabled = false
+    submitBtn.textContent = "Submit"
+    location.href = "./#open-modal"
    })
 })
 
